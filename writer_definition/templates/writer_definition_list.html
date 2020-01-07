@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block javascript %}
+  <script src="{% static 'books/js/writer.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+  <h1 class="page-header">Writer Definition</h1>
+
+  <p>
+    <button type="button" class="btn btn-primary js-create-writer" data-url="{% url 'writer_definition_create' %}">
+      <span class="glyphicon glyphicon-plus"></span>
+      New Writer Definition
+    </button>
+  </p>
+
+  <table class="table" id="writer-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Writer Name</th>
+        <th>Host</th>
+        <th>DbName</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% include 'includes/partial_writer_definition_list.html' %}
+    </tbody>
+  </table>
+
+  <div class="modal fade" id="modal-writer">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+      </div>
+    </div>
+  </div>
+{% endblock %}

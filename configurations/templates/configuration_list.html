@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block javascript %}
+  <script src="{% static 'books/js/configuration.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+  <h1 class="page-header">Configuration</h1>
+
+  <p>
+    <button type="button" class="btn btn-primary js-create-configuration" data-url="{% url 'configuration_create' %}">
+      <span class="glyphicon glyphicon-plus"></span>
+      New Configuration
+    </button>
+  </p>
+
+  <table class="table" id="configuration-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Configuration Name</th>
+        <th>Reader Name</th>
+          <th>Transformer Name</th>
+        <th>Writer Name</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% include 'includes/partial_configuration_list.html' %}
+    </tbody>
+  </table>
+
+  <div class="modal fade" id="modal-configuration">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+      </div>
+    </div>
+  </div>
+{% endblock %}

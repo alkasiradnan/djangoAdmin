@@ -1,0 +1,25 @@
+{% for configuration in configuration %}
+  <tr>
+    <td>{{ configuration.id }}</td>
+    <td>{{ configuration.configurationName }}</td>
+    <td>{{ configuration.reader }}</td>
+    <td>{{ configuration.transformer }}</td>
+      <td>{{ configuration.writer }}</td>
+    <td style="width: 150px">
+      <button type="button"
+              class="btn btn-warning btn-sm js-update-configuration"
+              data-url="{% url 'configuration_update' configuration.id %}">
+        <span class="glyphicon glyphicon-pencil"></span> Edit
+      </button>
+      <button type="button"
+              class="btn btn-danger btn-sm js-delete-configuration"
+              data-url="{% url 'configuration_delete' configuration.id %}">
+        <span class="glyphicon glyphicon-trash"></span> Delete
+      </button>
+    </td>
+  </tr>
+{% empty %}
+  <tr>
+    <td colspan="8" class="text-center bg-warning">No configuration definition</td>
+  </tr>
+{% endfor %}

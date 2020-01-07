@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block javascript %}
+  <script src="{% static 'books/js/operation.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+  <h1 class="page-header">Configuration</h1>
+
+  <p>
+    <button type="button" class="btn btn-primary js-create-operation" data-url="">
+      <span class="glyphicon glyphicon-plus"></span>
+      New Configuration
+    </button>
+  </p>
+
+{# {% load widget_tweaks %}#}
+<div id="operation-list">
+{% for reader in operation %}
+    <p>{{ reader.configurations.configurationName }}</p>
+{#  <div class="form-group{% if field.errors %} has-error{% endif %}">#}
+{#    <label for="{{ field.id_for_label }}">{{ field.label }}</label>#}
+{#    {% render_field field class="form-control" %}#}
+{#    {% for error in field.errors %}#}
+{#      <p class="help-block">{{ error }}</p>#}
+{#    {% endfor %}#}
+{#  </div>#}
+{% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+<nav class="navbar navbar-default techfont custom-navbar">
+  <div class="container">
+
+
+    <ul class="nav navbar-nav">
+      <li class="nav-item {{ context.reader }}"><a  href="{% url 'reader_definition_list' %}">Reader Definition</a></li>
+      <li class="nav-item {{ context.transformer }}"><a href="{% url 'transformer_definition_list'%}">Transformer Definition</a></li>
+      <li class="nav-item {{ context.writer }}"><a href="{% url 'writer_definition_list'%}">Writer Definition</a></li>
+      <li class="nav-item {{ context.configuration }}"><a href="{% url 'configuration_list'%}">Configuration</a></li>
+        <li class="nav-item {{ context.operation }}"><a href="{% url 'operation_list'%}">Operation</a></li>
+
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      {% if user.is_authenticated %}
+      <li>
+        <a href="{% url 'reader_definition_list' %}" >New Post</a>
+      </li>
+
+      <li>
+        <a href="{% url 'reader_definition_list' %}">Drafts</a>
+      </li>
+      <li>
+        <a href="{% url 'reader_definition_list' %}" >Log out</a>
+      </li>
+
+      <li>
+        <a >Welcome: {{ user.username }}</a>
+      </li>
+        {% else %}
+        <li><a class='nav navbar-right' href="{% url 'reader_definition_list' %}" ><span class="glyphicon glyphicon-user"></span></a></li>
+      {% endif %}
+
+    </ul>
+</div>
+</nav>

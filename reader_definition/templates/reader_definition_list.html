@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block javascript %}
+  <script src="{% static 'books/js/books.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+  <h1 class="page-header">Reader Definition</h1>
+
+  <p>
+    <button type="button" class="btn btn-primary js-create-reader" data-url="{% url 'reader_definition_create' %}">
+      <span class="glyphicon glyphicon-plus"></span>
+      New Reader Definition
+    </button>
+  </p>
+
+  <table class="table" id="reader-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Reader Name</th>
+        <th>Path</th>
+        <th>Type</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% include 'includes/partial_reader_definition_list.html' %}
+    </tbody>
+  </table>
+
+  <div class="modal fade" id="modal-reader">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+      </div>
+    </div>
+  </div>
+{% endblock %}

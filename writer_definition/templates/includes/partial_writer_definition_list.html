@@ -1,0 +1,26 @@
+{% for writer in writerDefinition %}
+  <tr>
+    <td>{{ writer.id }}</td>
+    <td>{{ writer.writerName }}</td>
+    <td>{{ writer.host }}</td>
+    <td>{{ writer.dbName }}</td>
+    <td>{{ writer.username }}</td>
+    <td>{{ writer.password }}</td>
+    <td style="width: 150px">
+      <button type="button"
+              class="btn btn-warning btn-sm js-update-writer"
+              data-url="{% url 'writer_definition_update' writer.id %}">
+        <span class="glyphicon glyphicon-pencil"></span> Edit
+      </button>
+      <button type="button"
+              class="btn btn-danger btn-sm js-delete-writer"
+              data-url="{% url 'writer_definition_delete' writer.id %}">
+        <span class="glyphicon glyphicon-trash"></span> Delete
+      </button>
+    </td>
+  </tr>
+{% empty %}
+  <tr>
+    <td colspan="8" class="text-center bg-warning">No writer definition</td>
+  </tr>
+{% endfor %}
